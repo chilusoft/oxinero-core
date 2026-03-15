@@ -1,0 +1,99 @@
+/* Desktop-first layout variables */
+:root {
+  --layout-nav-width: 260px;
+  --layout-content-max: 1200px;
+  --layout-content-narrow: 880px;
+  --layout-gap: 32px;
+  --layout-page-padding: 48px;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --layout-page-padding: 24px;
+    --layout-gap: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --layout-page-padding: 16px;
+    --layout-gap: 16px;
+  }
+}
+
+/* Main content area inside shell */
+.shell-content {
+  width: 100%;
+  max-width: var(--layout-content-max);
+  margin: 0 auto;
+  padding: var(--layout-page-padding);
+  box-sizing: border-box;
+}
+
+/* Desktop: home page two-column (welcome + impact | quick actions) */
+.home-layout {
+  display: grid;
+  gap: var(--layout-gap);
+  align-items: start;
+}
+
+@media (min-width: 1025px) {
+  .home-layout {
+    grid-template-columns: 1fr 380px;
+  }
+}
+
+/* Quick actions: 3 columns on desktop, 2 on tablet, 1 on small */
+.quick-actions-grid {
+  display: grid;
+  gap: var(--layout-gap);
+}
+
+@media (min-width: 1025px) {
+  .quick-actions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .quick-actions-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Profile: two columns on desktop; single column on small */
+.profile-layout {
+  display: grid;
+  gap: var(--layout-gap);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1025px) {
+  .profile-layout {
+    grid-template-columns: 1fr 340px;
+    align-items: start;
+  }
+}
+
+/* Learn: score cards + sprint list - cards in a row on desktop */
+.learn-cards {
+  display: grid;
+  gap: var(--layout-gap);
+}
+
+@media (min-width: 641px) {
+  .learn-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Ladder: comfortable single column width */
+.ladder-content {
+  max-width: 640px;
+}
